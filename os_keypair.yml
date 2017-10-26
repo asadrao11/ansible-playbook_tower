@@ -1,0 +1,16 @@
+- name: Deploy on OpenStack
+  hosts: localhost
+  gather_facts: false
+  tasks:
+  - name: Create a key pair with the running users public key
+    os_keypair:
+      state: present
+      auth:
+        auth_url: http://10.81.1.11:5000/v3
+        username: asad
+        password: asad
+        project_name: gocha1
+        user_domain_name: default
+        project_domain_name: default
+      name: ansible_key
+

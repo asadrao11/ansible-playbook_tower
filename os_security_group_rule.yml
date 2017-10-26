@@ -1,0 +1,20 @@
+- name: Deploy on OpenStack
+  hosts: localhost
+  gather_facts: false
+  tasks:
+  - name: Create a security group rule
+    os_security_group_rule:
+      state: present
+      auth:
+        auth_url: http://10.81.1.11:5000/v3
+        username: asad
+        password: asad
+        project_name: gocha1
+        user_domain_name: default
+        project_domain_name: default
+      security_group: apple
+      protocol: tcp
+      port_range_min: 80
+      port_range_max: 80
+      remote_ip_prefix: 0.0.0.0/0
+
