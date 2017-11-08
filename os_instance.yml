@@ -1,0 +1,27 @@
+###################################################################################################
+# It will create an instance on openstack
+
+- name: Deploy on OpenStack
+  hosts: 10.81.1.142
+  gather_facts: false
+  tasks:
+  - name: Creating an instance
+    os_server:
+       state: present
+       auth:
+         auth_url: http://10.81.1.141:5000/v3
+         username: asad
+         password: pakistan
+         project_name: gocha1
+         user_domain_name: default
+         project_domain_name: default   
+       name: vm01
+       image: eefc215e-dc2b-4f55-9e80-581b9b0d48fb
+       timeout: 200
+       flavor: 1
+       nics:
+         - net-id: 5a425116-440b-4356-9028-24363fed86d1
+         - net-name: testnet
+       meta:
+         hostname: test1
+

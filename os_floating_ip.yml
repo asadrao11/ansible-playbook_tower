@@ -1,0 +1,18 @@
+###################################################################################################
+# It will assign a floating ip to the virtual machine.
+
+- name: Deploy on OpenStack
+  hosts: 10.81.1.142
+  gather_facts: false
+  tasks:
+  - name: Allocate the floating IP
+    os_floating_ip:
+      state: present
+      auth:
+        auth_url: http://10.81.1.141:5000/v3 
+        username: asad
+        password: pakistan
+        user_domain_name: default
+        project_domain_name: default
+      server: vm01
+      network: public

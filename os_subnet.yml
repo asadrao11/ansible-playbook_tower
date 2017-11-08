@@ -1,0 +1,22 @@
+###################################################################################################
+# It will create a subnetwork into existing network openstack.
+
+- name: Deploy on OpenStack
+  hosts: 10.81.1.142
+  gather_facts: False
+  tasks:
+  - name: Create the subnet
+    os_subnet:
+      auth:
+        auth_url: http://10.81.1.141:5000/v3/
+        username: asad
+        password: pakistan
+        project_name: gocha1
+        user_domain_name: default
+        project_domain_name: default
+      state: present
+      network_name: testnet25
+      name: testnetsub
+      cidr: 6.6.0.0/24
+      gateway_ip: 6.6.6.254
+      ip_version: 4

@@ -1,0 +1,19 @@
+###################################################################################################
+# It will create a keypair into openstack
+
+- name: Deploy on OpenStack
+  hosts: 10.81.1.142
+  gather_facts: false
+  tasks:
+  - name: Create a key pair with the running users public key
+    os_keypair:
+      state: present
+      auth:
+        auth_url: http://10.81.1.141:5000/v3
+        username: asad
+        password: pakistan
+        project_name: gocha1
+        user_domain_name: default
+        project_domain_name: default
+      name: my_new_key
+

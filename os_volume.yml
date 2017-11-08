@@ -1,0 +1,20 @@
+###################################################################################################
+# It will create a volume into openstack
+
+- name: Deploy on OpenStack
+  hosts: 10.81.1.142
+  gather_facts: false
+  tasks:
+  - name: Create a volume of 10g test volume
+    os_volume:
+      state: present
+      auth:
+        auth_url: http://10.81.1.141:5000/v3
+        username: asad
+        password: pakistan
+        project_name: gocha1
+        user_domain_name: default
+        project_domain_name: default
+      size: 10
+      display_name: test_volume10
+
