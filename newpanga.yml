@@ -1,6 +1,6 @@
 ---
 - name: Create a network
-  hosts: localhost
+  hosts: 10.81.1.141
   tasks:
     - name: Execute the script
       local_action: command sh /root/shell.sh
